@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BudgetPaln
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0.
@@ -25,3 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# BudgetPlan
+>>>>>>> 19c172d890747539f96c580845ddedd7202d56bc
