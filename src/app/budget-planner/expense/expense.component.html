@@ -1,0 +1,76 @@
+<div class="navbar">
+    <h2 class="padT8">EXPENSE</h2>
+</div>
+
+<div class="main-container">
+    <div class="container">
+        <h2>Expense</h2>
+
+        <form action="" [formGroup]="expenseForm" class="input-form" (ngSubmit)="fnSubmitExpense()">
+            <div class="form-group">
+                <select class="form-control" id="month" formControlName="month" (change)="fnChangeMonth($event)">
+                    <option value="" disabled>Select Month</option>
+                    <option value="January">January</option>
+                    <option value="Febrauary">Febrauary</option>
+                    <option value="March">March</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+
+            </div>
+
+            <div class="form-group">
+                <div *ngIf="blnMonthSelected" class="total-expense">
+                    Total Month {{selectedMonth}} : {{fnClaculateEachMonthexpense()}}
+                </div>
+            </div>
+
+            <div class="form-group margin-class">
+                <select class="form-control" id="expenseType" formControlName="expenseType" [class.disabled-dropdown]="!blnMonthSelected">
+                    <option value="" disabled>Select Expense Type</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Utilities">Utilities</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="expenseAmount">Amount</label>
+                <input type="number" id="expenseAmount" placeholder="Enter Amount here" class="form-control" formControlName="expenseAmount" [class.disabled-dropdown]="!blnMonthSelected">
+            </div>
+
+            <div class="form-group margin-class">
+                <button class="btn btn-primary" (click)="fnSubmitExpense()">Add Expense</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <div *ngIf="blnMonthSelected">
+            <h2>Expense List {{selectedMonth}}</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let eachFiler of fngetFilterExpense()">
+                    <td>{{eachFiler.expenseType}}</td>
+                    <td>{{eachFiler.expenseAmount}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="input-form">
+            <button class="btn btn-primary" (click)="fnBack()">Back</button>
+            <div class="form-gropu"></div>
+            <button class="btn btn-primary" (click)="fnSaveForm()">Save</button>
+        </div>
+        </div>
+
+    </div>
+</div>
